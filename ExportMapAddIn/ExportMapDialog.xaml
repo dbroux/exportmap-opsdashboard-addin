@@ -1,0 +1,46 @@
+﻿<Window x:Class="ExportMapAddIn.ExportMapDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Configure Export Map"
+        SizeToContent="WidthAndHeight"
+        Style="{StaticResource SizableModalDialogWindowStyle}"
+        WindowStartupLocation="CenterOwner"
+        x:ClassModifier="internal">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <TextBlock Margin="10,5,5,5"
+                       Foreground="{DynamicResource DialogForegroundBrush}"
+                       Style="{StaticResource MediumTextBlockStyle}"
+                       Text="Print Service Task :" />
+            <TextBox Margin="10,5,5,5" Text="{Binding PrintService, Mode=TwoWay}" />
+        </StackPanel>
+
+        <!--  ok/cancel buttons  -->
+        <Border Grid.Row="1" Style="{DynamicResource DialogFooterBorderStyle}">
+            <Grid HorizontalAlignment="Right">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+
+                <Button Margin="5"
+                        Command="{Binding OkCommand}"
+                        Content="OK"
+                        Style="{StaticResource DialogOKCancelButtonStyle}" />
+                <Button Grid.Column="1"
+                        Margin="5"
+                        Content="Cancel"
+                        IsCancel="True"
+                        Style="{StaticResource DialogOKCancelButtonStyle}" />
+            </Grid>
+        </Border>
+
+
+    </Grid>
+</Window>
+
