@@ -23,7 +23,7 @@ namespace ExportMapAddIn
 	[DataContract]
 	public partial class ExportMapTool : UserControl, IMapTool
 	{
-		internal const string DefaultPrintService = "http://sampleserver6.arcgisonline.com/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export Web Map Task";
+		internal const string DefaultPrintService = "https://utility.arcgisonline.com/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export Web Map Task";
 
 		public ExportMapTool()
 		{
@@ -198,7 +198,7 @@ namespace ExportMapAddIn
 		private void SetPrintTask()
 		{
 			var printService = PrintService ?? DefaultPrintService;
-			PrintTask = new PrintTask(printService) {DisableClientCaching = true};
+			PrintTask = new PrintTask(printService) { DisableClientCaching = true };
 		}
 
 		/// <summary>
@@ -243,7 +243,7 @@ namespace ExportMapAddIn
 			{
 				if (serviceInfoEventArgs.Error != null)
 				{
-					MessageBox.Show(string.Format("Error while getting service info: {0}", serviceInfoEventArgs.Error));
+					MessageBox.Show(string.Format("Error while getting service info: {0}", serviceInfoEventArgs.Error), "Export Map", MessageBoxButton.OK, MessageBoxImage.Error);
 				}
 				else if (serviceInfoEventArgs.ServiceInfo != null)
 				{
@@ -265,10 +265,10 @@ namespace ExportMapAddIn
 			{
 				if (e.Error != null)
 				{
-					var message = string.Format("Error while exporting map: {0}", e.Error);
+					var message = string.Format("Error while exporting map: {0}", e.Error.Message);
 					if (e.Error is ServiceException && ((ServiceException) e.Error).Code == 400)
 						message += "\n\nNote: You may have to change the print service task by configuring the export map tool.";
-					MessageBox.Show(message);
+					MessageBox.Show(message, "Export map", MessageBoxButton.OK, MessageBoxImage.Error);
 				}
 				else
 				{

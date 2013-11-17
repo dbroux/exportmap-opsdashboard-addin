@@ -21,7 +21,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\..\..\Applications\output\win_wpf_debug\bin\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -40,31 +40,27 @@
   </PropertyGroup>
   <PropertyGroup>
     <!--depending on 32bit or 64bit machine the reg key for the IDEIntegration folder is different-->
-    <ReferenceFolder32>$(registry:HKEY_LOCAL_MACHINE\SOFTWARE\ESRI\ArcGISRuntimeWPF10.1.1@InstallDir)SDK\OperationsDashboard</ReferenceFolder32>
-    <ReferenceFolder64>$(registry:HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\ESRI\ArcGISRuntimeWPF10.1.1@InstallDir)SDK\OperationsDashboard</ReferenceFolder64>
+    <ReferenceFolder32>$(registry:HKEY_LOCAL_MACHINE\SOFTWARE\ESRI\ArcGISRuntimeWPF10.2@InstallDir)SDK\OperationsDashboard</ReferenceFolder32>
+    <ReferenceFolder64>$(registry:HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\ESRI\ArcGISRuntimeWPF10.2@InstallDir)SDK\OperationsDashboard</ReferenceFolder64>
     <!--set ReferenceFolder depending on 32bit or 64bit machine-->
     <ReferenceFolder Condition="Exists('$(ReferenceFolder32)')">$(ReferenceFolder32)</ReferenceFolder>
     <ReferenceFolder Condition="Exists('$(ReferenceFolder64)')">$(ReferenceFolder64)</ReferenceFolder>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ESRI.ArcGIS.AppCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=402f1553d5c332e7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\ArcGIS SDKs\WPF10.1.1\sdk\OperationsDashboard\ESRI.ArcGIS.AppCore.dll</HintPath>
+    <Reference Include="ESRI.ArcGIS.AppCore">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\ArcGIS SDKs\WPF10.2\sdk\OperationsDashboard\ESRI.ArcGIS.AppCore.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="ESRI.ArcGIS.Client, Version=10.1.1.0, Culture=neutral, PublicKeyToken=29c6dd6e8553d944, processorArchitecture=MSIL">
+    <Reference Include="ESRI.ArcGIS.Client, Version=10.2.0.0, Culture=neutral, PublicKeyToken=29c6dd6e8553d944, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\ArcGIS SDKs\WPF10.1.1\sdk\OperationsDashboard\ESRI.ArcGIS.Client.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="ESRI.ArcGIS.Client.Printing, Version=10.1.1.0, Culture=neutral, PublicKeyToken=29c6dd6e8553d944, processorArchitecture=MSIL">
+    <Reference Include="ESRI.ArcGIS.Client.Printing, Version=10.2.0.0, Culture=neutral, PublicKeyToken=29c6dd6e8553d944, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\ArcGIS SDKs\WPF10.1.1\sdk\bin\ESRI.ArcGIS.Client.Printing.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ESRI.ArcGIS.OperationsDashboard, Version=10.1.1.0, Culture=neutral, PublicKeyToken=402f1553d5c332e7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\ArcGIS SDKs\WPF10.1.1\sdk\OperationsDashboard\ESRI.ArcGIS.OperationsDashboard.dll</HintPath>
+    <Reference Include="ESRI.ArcGIS.OperationsDashboard">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\ArcGIS SDKs\WPF10.2\sdk\OperationsDashboard\ESRI.ArcGIS.OperationsDashboard.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -150,8 +146,8 @@
   </PropertyGroup>
   <PropertyGroup>
     <!--depending on 32bit or 64bit machine the reg key for the IDEIntegration folder is different-->
-    <IDEIntegrationFolder32>$(registry:HKEY_LOCAL_MACHINE\SOFTWARE\ESRI\ArcGISRuntimeWPF10.1.1@InstallDir)\SDK\IDEIntegration</IDEIntegrationFolder32>
-    <IDEIntegrationFolder64>$(registry:HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\ESRI\ArcGISRuntimeWPF10.1.1@InstallDir)\SDK\IDEIntegration</IDEIntegrationFolder64>
+    <IDEIntegrationFolder32>$(registry:HKEY_LOCAL_MACHINE\SOFTWARE\ESRI\ArcGISRuntimeWPF10.2@InstallDir)\SDK\IDEIntegration</IDEIntegrationFolder32>
+    <IDEIntegrationFolder64>$(registry:HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\ESRI\ArcGISRuntimeWPF10.2@InstallDir)\SDK\IDEIntegration</IDEIntegrationFolder64>
     <!--set IDEIntegrationFolder depending on 32bit or 64bit machine-->
     <IDEIntegrationFolder Condition="Exists('$(IDEIntegrationFolder32)')">$(IDEIntegrationFolder32)</IDEIntegrationFolder>
     <IDEIntegrationFolder Condition="Exists('$(IDEIntegrationFolder64)')">$(IDEIntegrationFolder64)</IDEIntegrationFolder>
